@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <meta charset='utf-8'>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+
+    #RegularText{
+    left: 80px;
+    position: absolute;
+    color: white;
+    font-size: 34px;
+    font-family: 'Orbitron', sans-serif;
+    }
+
+    #RegularBox{
+    left: 55px;
+    position: absolute;
+    background-color: #3F3F3F;
+    opacity: 0.5;
+    padding: 29px;
+    border-radius: 25px;
+    width: 450px;
+    }
+
+   #otherInfoBox{
+    width: 950px;
+    height: 280px;
+    top: 410px;
+    left: 50px;
+    position: absolute;
+    background-color: #3F3F3F;
+    opacity: 0.5;
+    border-radius: 25px;
+   }
+
+    body{
+      background-image: url("[background-image]");
+    }
+    
+    #userAvatar {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    left: 630px;
+    top: 85px;
+    position: absolute;
+    }
+
+    #botAvatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    left: 5px;
+    top: 3px;
+    position: absolute;
+    }
+
+    header
+    {
+      background-color: #02548F;
+      height: 55px;
+      position: fixed;
+      width: 100%;
+    }
+
+    #botName{
+      font-size: 38px;
+      font-family: 'Orbitron', sans-serif;
+      left: 70px;
+      top: 5px;
+      position: relative;
+      vertical-align: baseline;
+      color:black;
+      padding: 1px;
+    }
+
+    #userStatus{
+      position: absolute;
+      left: 830px;
+      top: 320px;
+    } 
+
+    #nextRankBox{
+    width: 950px;
+    height: 55px;
+    top: 635px;
+    left: 50px;
+    position: absolute;
+    background-color: #3F3F3F;
+    opacity: 0.8;
+    border-radius: 25px;
+    }
+
+    footer
+    {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 20px;
+    left: 0;
+    background:#02548F;
+    }
+
+    #progressFrame{
+    width: 401px;
+    height: 45px;
+    top: 638px;
+    left: 449px;
+    position: absolute;
+    border: 3px solid black;
+    border-radius: 25px;
+    }
+    
+    #progress{
+    height: 45px;
+    top: 641px;
+    left: 453px;
+    position: absolute;
+    background-color: #01ff01;
+    border-radius: 25px;
+    }
+    </style>
+        <link href="https://fonts.googleapis.com/css?family=Orbitron:500" rel="stylesheet">
+  </head>
+  <body>
+
+  <header>
+      <img id ="botAvatar" src="[botAvatar]">
+      <div id="botName">
+          [botName]
+      </div>
+  </header>
+
+  <img id ="userAvatar" src="[userAvatar]">
+
+  <div id="RegularBox" name="userName" style="top: 98px;"></div>
+  <div id="RegularText" name="userName" style="top: 106px;">
+    Nick: [nick]
+  </div>
+
+  <div id="RegularBox" name="userRank" style="top: 168px;"></div>
+  <div id="RegularText" name="userRank" style="top: 176px;">
+    Rank: 
+  </div>
+  <div id="RegularText" name="userRank" style="top: 178px; left:187px; color: [rankColor]">
+    [rank] 
+  </div>
+
+  <div id="RegularBox" name="userPlaytime" style="top: 238px;"></div>
+  <div id="RegularText" name="userPlaytime" style="top: 246px;">
+    Playtime: [playtime]h
+  </div>
+
+  <div id="RegularBox" name="userMoney" style="top: 308px;"></div>
+  <div id="RegularText" name="userMoney" style="top: 316px;">
+    Money: [money]
+  </div>
+  
+  <div id="otherInfoBox" name="otherInfo"></div>
+  <div id="RegularText" name="otherInfo" style="top: 420px; line-height: 1.5;">
+    <p>Level: [level]</p>
+    <p>Connected at: [connectedAt]</p>
+    <p>Warnings: [warnings]</p>
+    <p>MemberSince: [membersince]</p>
+  </div>
+
+  <div id="nextRankBox"></div>
+  <div id="RegularText" style="top: 642px;font-size: 30px;">
+      Next Role: 
+  </div>
+  <div id="RegularText" style = "top: 642px; left: 259px;font-size: 30px;color:[nextRoleColor];">
+   [nextRole]
+  </div>
+  <div id="RegularText" style = "top: 642px; left: 870px;font-size: 30px;">
+      [nextRankHours]h
+    </div>
+  <div id="progressFrame"></div>
+  <div id="progress" style="width:[progressLength]px;"></div>
+
+  <canvas id="userStatus" width="66" height="66">
+      Your browser does not support the HTML5 canvas tag.</canvas>  
+
+  <footer>
+      <div id="job"></div>
+  </footer>
+
+<script>
+var canvas = document.getElementById('userStatus');
+var context = canvas.getContext('2d');
+  
+  context.beginPath();
+  context.arc(33, 33, 32, 0, 2*Math.PI);
+  context.strokeStyle = 'black';
+  context.stroke();
+  context.fillStyle = 'black';
+  context.fill();
+
+  context.beginPath();
+  context.arc(33, 33, 22, 0, 2*Math.PI);
+  context.lineWidth = 10;
+  context.strokeStyle = '[statusSecondColor]';
+  context.stroke();
+  context.fillStyle = '[statusFirstColor]';
+  context.fill();
+</script>
+
+  </body>
+</html>
