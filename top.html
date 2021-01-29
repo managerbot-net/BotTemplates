@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <meta charset='utf-8'>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+      background-image: url("[background-image]");
+      height: 720px;
+      width: 1280px;
+    }
+
+    #botAvatar {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      left: 5px;
+      top: 3px;
+      position: absolute;
+    }
+
+    header {
+      background-color: #02548F;
+      height: 55px;
+      position: fixed;
+      width: 1280px;
+    }
+
+    #botName {
+      font-size: 38px;
+      font-family: 'Orbitron', sans-serif;
+      left: 70px;
+      top: 3px;
+      position: relative;
+      vertical-align: baseline;
+      color:black;
+      padding: 1px;
+    }
+
+    #divFooter {
+      position: absolute;
+      width: 1280px;
+      top: 700px;
+      height: 20px;
+      left: 0;
+      background-color:#02548F;
+    }
+
+    .chart
+    {
+      position: absolute;
+      top: 55px;
+      width: 1280px;
+      height: 650px;
+    }
+    </style>
+
+  </head>
+  <body>
+
+    <header>
+        <img id ="botAvatar" src="[botAvatar]">
+        <div id="botName">[botName]</div>
+    </header>
+  
+  
+    <div id="chartContainer" class="chart"></div>
+    <div id="divFooter"></div>
+    
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+      window.onload = function () {
+  
+      var chart = new CanvasJS.Chart("chartContainer", {
+        // theme: "dark1",
+        backgroundColor: "transparent",
+        title:{
+          text: "The most active users"
+        },
+        data: [{
+          type: "column", //change type to bar, line, area, pie, etc
+          indexLabel: "{y}", //Shows y value on all Data Points
+          indexLabelFontColor: "#FFFFFF",
+          indexLabelFontSize: 16,
+          indexLabelPlacement: "outside",
+          dataPoints: [
+            [dataPoints]
+          ]
+        }]
+      });
+      chart.render();
+  
+    }
+      </script>
+  
+    </body>
+</html>
