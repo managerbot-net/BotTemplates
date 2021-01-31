@@ -1,4 +1,10 @@
 <style>
+    * {
+        position: absolute;
+        padding: 0;
+        white-space: nowrap;
+        margin: 0;
+    }
     body {
         color: aliceblue;
         font-size: 45;
@@ -9,14 +15,13 @@
         width: 1700px;
         left: 150px;
         top: 475px;
-        position: absolute;
     }
     #title {
         font-size: 60px;
         color:darkmagenta;
         left: 60px;
         top: 70px;
-        position: absolute;
+        width: 1860px;
         font-weight:bold;
     }
     #botAvatar {
@@ -25,89 +30,101 @@
         height: 50px;
         left: 5px;
         top: 3px;
-        position: absolute;
     }
     #botName {
         font-size: 38px;
         font-family: 'Exo', sans-serif;
         left: 60px;
         top: 3px;
-        position: absolute;
         vertical-align: baseline;
         color:black;
         padding: 1px;
         font-weight:bold;
     }
-    #playedGamesCount {
-        left: 530px;
-        top: 205px;
-        position: absolute;
-    }
-    #totalMoneyEarned {
-        left: 530px;
-        top: 270px;
-        position: absolute;
-    }
-    #luckiestGame {
-        left: 430px;
-        top: 335px;
-        position: absolute;
-    }
-    #totalWinRate {
-        left: 440px;
-        top: 400px;
-        position: absolute;
-    }
-    #mostPlayedGameName {
-        left: 1330px;
-        top: 205px;
-        position: absolute;
-    }
-    #mostPlayedGameCount {
-        left: 1360px;
-        top: 270px;
-        position: absolute;
-    }
-    #mostPlayedGameMoneyEarned {
-        left: 1300px;
-        top: 335px;
-        position: absolute;
-    }
-    #mostPlayedGameWinRate {
-        left: 1210px;
-        top: 400px;
-        position: absolute;
-    }
     #totalActivityHours {
         left: 190px;
         top: 1000px;
-        position: absolute;
         font-weight: bold;
         font-size: 33;
         font-family: Arial, Helvetica, sans-serif;
     }
+    #header {
+        background-color: #02548F;
+        width: 1920px;
+        height: 60px;
+    }
+    #footer {
+        width: 1920px;
+        height: 20px;
+        top: 1060px;
+        background-color: #02548F;
+    }
+    #gameSectionContainer {
+        left: 100px;
+        top: 205px;
+    }
+    #mostPlayedSectionContainer {
+        left: 1000px;
+        top: 205px;
+        padding: 0px;
+        margin: 0px;
+    }
+    #gameSection {
+        color: #44AFF0;
+    }
+    #mostPlayedGame {
+        color: #49F153;
+    }
+    .containerTitle {
+        position: relative;
+    }
+    .containerItem {
+        position: relative;
+        margin-left: 20px;
+    }
+    .title {
+        font-weight: bold;
+    }
+    #mostPlayedActivites {
+        left: 100px;
+        top: 550px;
+        color: #EA2F4C;
+    }
+
 </style>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
 </head>
-<body background="https://i.ibb.co/XyfC38r/daily.png">
-    <div>
+
+<body background="./images/img.jpg">
+    <div id="header">
         <img id="botAvatar" src="[botAvatar]">
-        <div id="botName">
-            [botName]
-        </div>
+        <div id="botName">[botName]</div>
     </div>
+
     <div id="title">[Username] [activityLength] statistics</div>
-    <div id="playedGamesCount">[playedGamesCount]</div>
-    <div id="totalMoneyEarned">[totalMoneyEarned]</div>
-    <div id="luckiestGame">[luckiestGame]</div>
-    <div id="totalWinRate">[totalWinRate]</div>
-    <div id="mostPlayedGameName">[mostPlayedGameName]</div>
-    <div id="mostPlayedGameCount">[mostPlayedGameCount]</div>
-    <div id="mostPlayedGameMoneyEarned">[mostPlayedGameMoneyEarned]</div>
-    <div id="mostPlayedGameWinRate">[mostPlayedGameWinRate]</div>
+
+    <div id="gameSectionContainer">
+        <div id="gameSection" class="containerTitle title">Game section</div>
+        <div id="playedGamesCount" class="containerItem">Played games count: [playedGamesCount]</div>
+        <div id="totalMoneyEarned" class="containerItem">Total money earned: [totalMoneyEarned]</div>
+        <div id="luckiestGame" class="containerItem">Luckiest game: [luckiestGame]</div>
+        <div id="totalWinRate" class="containerItem">Total winrate: [totalWinRate]</div>
+    </div>
+
+    <div id="mostPlayedSectionContainer">
+        <div id="mostPlayedGame" class="containerTitle title">Most played game</div>
+        <div id="mostPlayedGameName" class="containerItem">Minigame name: [mostPlayedGameName]</div>
+        <div id="mostPlayedGameCount" class="containerItem">Games count: [mostPlayedGameCount]</div>
+        <div id="mostPlayedGameMoneyEarned" class="containerItem">Money earmed: [mostPlayedGameMoneyEarned]</div>
+        <div id="mostPlayedGameWinRate" class="containerItem">Winrate: [mostPlayedGameWinRate]</div>
+    </div>
+
+    <div id="mostPlayedActivites" class="title">Most played activities</div>
+
     <div id="chartContainer"></div>
     <div id="totalActivityHours">Total: [totalActivityHours] hours</div>
+    <div id="footer"></div>
 </body>
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
