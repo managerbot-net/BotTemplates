@@ -10,8 +10,9 @@
 
     body {
       background-image: url("[background-image]");
-      height: 720px;
-      width: 1280px;
+      background-repeat: no-repeat;
+      height: 1080px;
+      width: 1920px;
     }
 
     #botAvatar {
@@ -27,7 +28,7 @@
       background-color: #02548F;
       height: 55px;
       position: fixed;
-      width: 1280px;
+      width: 1920px;
     }
 
     #botName {
@@ -43,59 +44,110 @@
 
     #divFooter {
       position: absolute;
-      width: 1280px;
-      top: 700px;
+      width: 1920px;
+      top: 1060px;
       height: 20px;
       left: 0;
       background-color:#02548F;
     }
 
-    .chart
-    {
-      position: absolute;
-      top: 55px;
-      width: 1280px;
-      height: 650px;
+    #chartContainer {
+      position:absolute;
+      top: 65px;
+      height: 930px;
+      width: 1900px;
+      left: 10px;
     }
+
+    #title {
+      position: absolute;
+      top: 70px;
+      font-size: 38px;
+      font-family: 'Orbitron', sans-serif;
+      color: aliceblue;
+      width: 1920px;
+      text-align: center;
+      text-transform: capitalize;
+    }
+
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
 
-  </head>
-  <body>
-
-    <header>
-        <img id ="botAvatar" src="[botAvatar]">
-        <div id="botName">[botName]</div>
-    </header>
-  
-  
-    <div id="chartContainer" class="chart"></div>
-    <div id="divFooter"></div>
-    
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script>
       window.onload = function () {
-  
+      
+        CanvasJS.addColorSet("customColorSet",
+        [
+            "#4661EE",
+            "#EC5657",
+            "#1BCDD1",
+            "#8FAABB",
+            "#B08BEB",
+            "#3EA0DD",
+            "#F5A52A",
+            "#23BFAA",
+            "#FAA586",
+            "#EB8CC6",
+        ]);
+
       var chart = new CanvasJS.Chart("chartContainer", {
-        // theme: "dark1",
         backgroundColor: "transparent",
-        title:{
-          text: "The most active users"
-        },
+        colorSet: "customColorSet",
+        exportEnabled: false,
+        zoomEnabled:false,
+
+        axisY: {
+          labelFontSize: 25,
+          labelFontColor: "white",
+			  },
+        axisX: {
+          labelFontSize: 30,
+          labelFontColor: "white",
+          labelPlacement: "inside",
+          labelAutoFit: true
+			  },
+
         data: [{
-          type: "column", //change type to bar, line, area, pie, etc
-          indexLabel: "{y}", //Shows y value on all Data Points
-          indexLabelFontColor: "#FFFFFF",
-          indexLabelFontSize: 16,
+          type: "column",
+          indexLabel: "{y}",
+          indexLabelFontColor: "white",
+          animationEnabled: false,
+          indexLabelFontStyle:"bold",
+          yValueFormatString: "# ##0.#h",
+          indexLabelFontSize: 25,
           indexLabelPlacement: "outside",
           dataPoints: [
-            [dataPoints]
+            { label: "Hexxy", y: 71 },
+            { label: "SirSecurity", y: 55 },
+            { label: "Hi! I'm Elfo!", y: 50 },
+            { label: "Sysel", y: 65 },
+            { label: "Chrispekt", y: 92},
+            { label: "DADÁK", y: 68 },
+            { label: "FyxKing👑", y: 20 },
+            { label: "chvo_dan", y: 71 },
+            { label: "Kamarád", y: 54 },
+            { label: "Famfulinda", y: 60 }
           ]
         }]
       });
       chart.render();
-  
-    }
+      
+      }
       </script>
-  
-    </body>
+  </head>
+  <body>
+
+  <header>
+      <img id ="botAvatar" src="[botAvatar]">
+      <div id="botName">[botName]</div>
+  </header>
+
+  <div id="title">Monthly Most active user<div>
+
+  <div id="chartContainer"></div>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  <div id="divFooter"></div>
+
+  </body>
 </html>
